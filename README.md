@@ -1,7 +1,6 @@
 # Image Downloader
 
 Image downloader script finds image urls scraped by Image Selector in a csv file and downloads them.
-Images are renamed to `<web-scraper-oder>-<selector-name>.ext`.
 
 ### Windows usage
 
