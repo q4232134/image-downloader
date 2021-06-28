@@ -54,7 +54,8 @@ def download_csv_row_images(row, dest_dir):
             image_url = row[key]
             image_url = urljoin(start_url, image_url)
 
-            image_filename = "%s-%s" % (id, key[0:-4])
+            image_filename = "%s" % (os.path.basename(image_url))
+            print(image_filename)
             download_image(image_url, dest_dir, image_filename)
 
 
@@ -79,7 +80,7 @@ def download_image(image_url, dest_dir, image_filename):
             logging.warning("unknown image content type %s" % content_type)
             return
 
-        image_path = os.path.join(dest_dir, image_filename+"."+ext)
+        image_path = os.path.join(dest_dir, image_filename)
         shutil.move(tmp_file_name, image_path)
     except Exception as e:
         logging.warning("Image download error. %s" % e)
